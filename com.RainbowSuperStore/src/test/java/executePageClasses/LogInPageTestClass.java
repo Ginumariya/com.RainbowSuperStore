@@ -22,8 +22,8 @@ public class LogInPageTestClass extends BaseClass {
 	  
 	  lp=new LoginPageClass(driver);
 	  lp.login(uname,password);
-	  String actual=lp.getTextofAdmin();
-	  String exp="Admin";
+	  String actual=lp.getTextofAlertMessage();
+	  String exp="Alert!";
 	  Assert.assertEquals(actual, exp);
 	  }
   @Test

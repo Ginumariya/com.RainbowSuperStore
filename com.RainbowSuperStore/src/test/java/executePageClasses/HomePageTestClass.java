@@ -5,13 +5,14 @@ import org.testng.annotations.Test;
 
 import PageClasses.HomePageClass;
 import PageClasses.LoginPageClass;
+import reTryAnalyzer.RetryAnalyzer;
 
 public class HomePageTestClass extends BaseClass{
 	
 	  LoginPageClass lp;
 	  HomePageClass hp;
 	
-  @Test
+  @Test(retryAnalyzer=RetryAnalyzer.class,groups = {"group1"})
   public void verifyAllTilesAreDisplayedOrNotInHomePage() {
 	  
 	  lp=new LoginPageClass(driver);

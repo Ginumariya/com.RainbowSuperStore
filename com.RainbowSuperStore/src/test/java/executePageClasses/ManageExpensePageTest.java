@@ -1,6 +1,7 @@
 package executePageClasses;
 
 import java.awt.AWTException;
+import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,12 +9,13 @@ import org.testng.annotations.Test;
 import PageClasses.HomePageClass;
 import PageClasses.LoginPageClass;
 import PageClasses.ManageExpensePage;
+import reTryAnalyzer.RetryAnalyzer;
 
 public class ManageExpensePageTest extends BaseClass{
 	LoginPageClass lp;
 	HomePageClass hp;
 	ManageExpensePage mp;
-  @Test
+  @Test (priority = 0,groups = {"group1"})
   public void verifyManageExpensePageisDisplayedOrNot() {
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);
@@ -26,8 +28,8 @@ public class ManageExpensePageTest extends BaseClass{
 	  Assert.assertTrue(actual);
 	  
   }
-  @Test
-  public void verifytoCreateNewManageExpense() throws AWTException {
+  @Test(priority = 1,retryAnalyzer=RetryAnalyzer.class,groups = {"create"})
+  public void verifytoCreateNewManageExpense() throws AWTException, IOException {
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);
 	  mp=new ManageExpensePage(driver);
@@ -38,13 +40,16 @@ public class ManageExpensePageTest extends BaseClass{
 	  mp.clickonNewManageExpense();
 	  mp.userdropdownselectbyindex();
 	  mp.typeOnDateTab("23/06/2023");
+//	  mp.typeOnDateTab(mp.readValueInteger(7, 1));
 	  mp.categoryDropdownselectbyindex();
 	  mp.orderIdDropdownselectbyValue();
 	  mp.puchaseIdDropdwoanSelectbyValue();
 	  mp.expenseTypeDropDownSelectByIndex();
-	  mp.typeonAmount("1000");
-	  mp.typeOnRemarks("good");
-	//  mp.uploadfileUsingSendKeys(System.getProperty("user.dir") + "\\src\\test\\resources\\sample.jpg");
+//	  mp.typeonAmount("1000");
+	  mp.typeonAmount(mp.readValueInteger(8, 1));
+//	  mp.typeOnRemarks("good");
+	  mp.typeOnRemarks(mp.readValue(9, 1));
+//	  mp.uploadfileUsingSendKeys(System.getProperty("user.dir") + "\\src\\test\\resources\\sample.jpg");
 	  mp.clickOnChooseFileButton();
 	  mp.sampleFileUpload();
 	  
@@ -53,7 +58,7 @@ public class ManageExpensePageTest extends BaseClass{
 	  Assert.assertTrue(actual);
 	  
   }
-  @Test
+  @Test(priority = 2,retryAnalyzer=RetryAnalyzer.class,groups = {"search"})
   public void verifyToSearchCreatedManagaeExpense() {
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);

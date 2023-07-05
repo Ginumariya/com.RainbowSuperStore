@@ -1,5 +1,7 @@
 package executePageClasses;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,7 +13,7 @@ public class ExpenseCatogoryTest extends BaseClass {
 	 LoginPageClass lp;
 	 HomePageClass hp;
 	 ExpenseCatogory ec;
-  @Test(priority = 1)
+  @Test(priority = 1,groups = {"group1"})
   public void verifyExpensecategoryPageisDisplayedorNot() {
 	  
 	  lp=new LoginPageClass(driver);
@@ -30,8 +32,8 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  
 	 
   }
-  @Test(priority = 2)
-  public void verifyToCreateNewExpense() {
+  @Test(priority = 2,groups = {"create"})
+  public void verifyToCreateNewExpense() throws IOException {
 	  
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);
@@ -42,7 +44,9 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  hp.clickonExpenseCategory();
 	  
 	 ec.clickonnew();
-	 ec.typeonTitle("FrenchFries");
+	
+	 ec.typeonTitle(ec.expenseRead(3,1));
+	 
 	 ec.clickonSave();
 	 boolean actual=ec.FrenchfriesTextDisplayedOrNot();
 	 boolean exp=true;
@@ -50,8 +54,8 @@ public class ExpenseCatogoryTest extends BaseClass {
 	 
 	  
   }
-  @Test(priority = 3)
-  public void verifyToSearchCreatedExpense() {
+  @Test(priority = 3,groups = {"search"})
+  public void verifyToSearchCreatedExpense() throws IOException {
 	  
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);
@@ -62,7 +66,8 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  hp.clickonExpenseCategory();
 	  
 	 ec.clickonMainSearch();
-	 ec.typeontitile1("FrenchFries");
+	 ec.typeontitile1(ec.expenseRead(3, 1));
+	
 	 ec.clickOnSearch1();
 	 boolean actual=ec.FrenchfriesTextDisplayedOrNot();
 	 boolean exp=true;
@@ -72,7 +77,7 @@ public class ExpenseCatogoryTest extends BaseClass {
   
   }
   @Test(priority = 4)
-  public void verifyToDeleteCreatedexpense() {
+  public void verifyToDeleteCreatedexpense() throws IOException {
 	  
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);
@@ -83,7 +88,8 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  hp.clickonExpenseCategory();
 	  
 	 ec.clickonnew();
-	 ec.typeonTitle("FrenchFries");
+	 ec.typeonTitle(ec.expenseRead(3,1));
+	
 	 ec.clickonSave();
 	 ec.clickOnDeleteIcon();
 	 ec.alertAccept();

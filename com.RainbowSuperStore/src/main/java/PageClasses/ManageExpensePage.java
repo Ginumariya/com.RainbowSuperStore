@@ -1,6 +1,7 @@
 package PageClasses;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ExcelRead;
 import utilities.FileUpload;
 import utilities.GeneralUtilities;
 
@@ -158,6 +160,14 @@ public class ManageExpensePage {
 		
 		
 	}
+	public String readValue(int row,int column) throws IOException {
+		return ExcelRead.getStringData(row, column);
+	}
+	
+	public String readValueInteger(int row,int column) throws IOException {
+		return ExcelRead.getIntegerData(row, column);
+	}
+	
 	
 	
 

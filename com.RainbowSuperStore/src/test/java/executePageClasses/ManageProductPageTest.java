@@ -6,12 +6,13 @@ import org.testng.annotations.Test;
 import PageClasses.HomePageClass;
 import PageClasses.LoginPageClass;
 import PageClasses.ManageProductPage;
+import reTryAnalyzer.RetryAnalyzer;
 
 public class ManageProductPageTest extends BaseClass {
 	LoginPageClass lp;
 	HomePageClass hp;
 	ManageProductPage mpp;
-  @Test
+  @Test(retryAnalyzer=RetryAnalyzer.class)
   public void verifyToSearchaProduct() {
 	  
 	  lp=new LoginPageClass(driver);

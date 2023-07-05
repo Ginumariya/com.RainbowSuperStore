@@ -1,5 +1,6 @@
 package PageClasses;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ExcelRead;
 import utilities.GeneralUtilities;
 
 public class ExpenseCatogory {
@@ -99,6 +101,10 @@ public class ExpenseCatogory {
 	
 	public boolean alertMessageDisplayedOrNot() {
 		return gl.isDisplayed(alertMessage);
+	}
+	
+	public String expenseRead(int row,int column) throws IOException {
+		return ExcelRead.getStringData(row, column);
 	}
 	
 	

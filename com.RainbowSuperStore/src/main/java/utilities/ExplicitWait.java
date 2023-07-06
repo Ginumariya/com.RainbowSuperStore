@@ -25,5 +25,19 @@ public class ExplicitWait {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
+	public void visibilityOfWait(WebDriver driver,WebElement element) {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	public void elementToBeSelectedWait(WebDriver driver,WebElement element,String value) {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeSelected(By.xpath(value)));
+	}
+	public void visibilityOfElementLocatedWait(WebDriver driver,WebElement element,String value) {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(value)));
+	}
+	
+	
 
 }

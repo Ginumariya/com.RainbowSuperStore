@@ -25,5 +25,34 @@ public class FluentWaitClass {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(value)));
 		
 	}
+	public void alertIsPresentWait(WebDriver driver) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+	}
+	public void elementToBeClickableWait(WebDriver driver,WebElement element) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		
+	}
+	public void visibilityOfWait(WebDriver driver,WebElement element) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	public void elementToBeSelectedWait(WebDriver driver,WebElement element,String value) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeSelected(By.xpath(value)));
+	}
+	public void visibilityOfElementLocatedWait(WebDriver driver,WebElement element,String value) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(value)));
+	}
+	
+	
 
 }

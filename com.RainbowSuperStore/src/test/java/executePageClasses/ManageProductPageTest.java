@@ -12,7 +12,7 @@ public class ManageProductPageTest extends BaseClass {
 	LoginPageClass lp;
 	HomePageClass hp;
 	ManageProductPage mpp;
-  @Test(retryAnalyzer=RetryAnalyzer.class)
+  @Test(retryAnalyzer=RetryAnalyzer.class,groups = {"search"})
   public void verifyToSearchaProduct() {
 	  
 	  lp=new LoginPageClass(driver);

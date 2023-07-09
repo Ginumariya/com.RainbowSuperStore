@@ -15,7 +15,7 @@ public class ManageExpensePageTest extends BaseClass{
 	LoginPageClass lp;
 	HomePageClass hp;
 	ManageExpensePage mp;
-  @Test (priority = 0,groups = {"group1"})
+  @Test (priority = 0,retryAnalyzer=RetryAnalyzer.class,groups = {"group1"})
   public void verifyManageExpensePageisDisplayedOrNot() {
 	  lp=new LoginPageClass(driver);
 	  hp=new HomePageClass(driver);

@@ -65,7 +65,7 @@ public class BaseClass {
 	  }
 	  
   }
-	// driver.quit();
+	  //driver.quit();
 	   @BeforeSuite(alwaysRun = true)
 		public void createReport(final ITestContext testContext) {
 		extendReport.ExtentManager.createInstance().createTest(testContext.getName(), "message");

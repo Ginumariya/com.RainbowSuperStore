@@ -12,12 +12,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.ExcelRead;
+import utilities.ExplicitWait;
 import utilities.GeneralUtilities;
 
 public class ExpenseCatogory {
 	WebDriver driver;
 	
 	GeneralUtilities gl=new GeneralUtilities();
+	ExplicitWait ew=new ExplicitWait();
 	
 	public ExpenseCatogory(WebDriver driver) {
 		
@@ -49,7 +51,7 @@ public class ExpenseCatogory {
 	@FindBy(xpath="(//*[@type='submit'])[1]")
 	WebElement search1;
 	
-	@FindBy(xpath="(//i[@class='fas fa-trash-alt'])[1]")
+	@FindBy(xpath="//*[@class='btn btn-sm btn btn-danger btncss']")
 	WebElement deleteIcon;
 	
 	@FindBy(xpath="//*[@class='alert alert-success alert-dismissible']")
@@ -93,6 +95,7 @@ public class ExpenseCatogory {
 	}
 	
 	public void clickOnDeleteIcon() {
+		ew.presenceOfElementLoactedWait(driver, "(//i[@class='fas fa-trash-alt'])[1]");
 		gl.clickOnElement(deleteIcon);
 	}
 	public void alertAccept() {

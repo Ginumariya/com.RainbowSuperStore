@@ -8,12 +8,13 @@ import org.testng.annotations.Test;
 import PageClasses.ExpenseCatogory;
 import PageClasses.HomePageClass;
 import PageClasses.LoginPageClass;
+import reTryAnalyzer.RetryAnalyzer;
 
 public class ExpenseCatogoryTest extends BaseClass {
 	 LoginPageClass lp;
 	 HomePageClass hp;
 	 ExpenseCatogory ec;
-  @Test(priority = 1,groups = {"group1"})
+  @Test(priority = 1,retryAnalyzer=RetryAnalyzer.class,groups = {"group1"})
   public void verifyExpensecategoryPageisDisplayedorNot() {
 	  
 	  lp=new LoginPageClass(driver);
@@ -32,7 +33,7 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  
 	 
   }
-  @Test(priority = 2,groups = {"create"})
+  @Test(priority = 2,retryAnalyzer=RetryAnalyzer.class,groups = {"create"})
   public void verifyToCreateNewExpense() throws IOException {
 	  
 	  lp=new LoginPageClass(driver);
@@ -54,7 +55,7 @@ public class ExpenseCatogoryTest extends BaseClass {
 	 
 	  
   }
-  @Test(priority = 3,groups = {"search"})
+  @Test(priority = 3,retryAnalyzer=RetryAnalyzer.class,groups = {"search"})
   public void verifyToSearchCreatedExpense() throws IOException {
 	  
 	  lp=new LoginPageClass(driver);
@@ -76,7 +77,7 @@ public class ExpenseCatogoryTest extends BaseClass {
   
   
   }
-  @Test(priority = 4)
+  @Test(priority = 4,retryAnalyzer=RetryAnalyzer.class,groups = {"group2"})
   public void verifyToDeleteCreatedexpense() throws IOException {
 	  
 	  lp=new LoginPageClass(driver);
@@ -87,10 +88,15 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  hp.clickManageExpense();
 	  hp.clickonExpenseCategory();
 	  
-	 ec.clickonnew();
-	 ec.typeonTitle(ec.expenseRead(3,1));
+	// ec.clickonnew();
+	// ec.typeonTitle(ec.expenseRead(3,1));
 	
-	 ec.clickonSave();
+	// ec.clickonSave();
+	  ec.clickonMainSearch();
+		 ec.typeontitile1(ec.expenseRead(3, 1));
+		
+		 ec.clickOnSearch1();
+
 	 ec.clickOnDeleteIcon();
 	 ec.alertAccept();
 	 boolean actual=ec.alertMessageDisplayedOrNot();

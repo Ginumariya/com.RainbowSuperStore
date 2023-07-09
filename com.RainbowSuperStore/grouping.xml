@@ -16,13 +16,16 @@
 			 <include name="search"></include>
 			 <include name="create"></include>
 			 <include name="group1"></include>
+			 <include name="group2"></include>
 		 </run> 
 		  
 	  </groups>
     <classes>
-     <class name="executePageClasses.ManageExpensePageTest"/>
-      <class name="executePageClasses.ExpenseCatogoryTest"/>
-      <class name="executePageClasses.HomePageTestClass"/>
+     <class name="executePageClasses.LogInPageTestClass" />
+			<class name="executePageClasses.HomePageTestClass" />
+			<class name="executePageClasses.ExpenseCatogoryTest" />
+			<class name="executePageClasses.ManageExpensePageTest" />
+			<class name="executePageClasses.ManageProductPageTest" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite --> 

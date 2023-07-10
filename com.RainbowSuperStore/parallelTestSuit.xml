@@ -11,9 +11,9 @@
     <classes>
       <class name="executePageClasses.ManageProductPageTest"/>
       <class name="executePageClasses.LogInPageTestClass"/>
-   <!--   <class name="executePageClasses.ManageExpensePageTest"/>
+     <class name="executePageClasses.ManageExpensePageTest"/>
       <class name="executePageClasses.ExpenseCatogoryTest"/>
-      <class name="executePageClasses.HomePageTestClass"/> --> 
+      <class name="executePageClasses.HomePageTestClass"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

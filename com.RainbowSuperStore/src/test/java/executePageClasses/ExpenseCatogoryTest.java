@@ -88,14 +88,11 @@ public class ExpenseCatogoryTest extends BaseClass {
 	  hp.clickManageExpense();
 	  hp.clickonExpenseCategory();
 	  
-	// ec.clickonnew();
-	// ec.typeonTitle(ec.expenseRead(3,1));
+	ec.clickonnew();
+	ec.typeonTitle(ec.expenseRead(3,1));
 	
-	// ec.clickonSave();
-	  ec.clickonMainSearch();
-		 ec.typeontitile1(ec.expenseRead(3, 1));
-		
-		 ec.clickOnSearch1();
+	ec.clickonSave();
+	 
 
 	 ec.clickOnDeleteIcon();
 	 ec.alertAccept();

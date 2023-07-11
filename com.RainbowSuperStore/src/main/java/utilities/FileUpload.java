@@ -13,7 +13,7 @@ public class FileUpload {
 		Robot rb = new Robot();
 
 		StringSelection filePath = new StringSelection(
-				System.getProperty("user.dir") + "\\src\\test\\resources\\sample.jpg");
+				System.getProperty("user.dir") + "\\src\\test\\resources\\sample.jpg");//storing file path to string to class
 
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 

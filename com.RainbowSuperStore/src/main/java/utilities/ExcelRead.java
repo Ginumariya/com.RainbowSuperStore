@@ -14,9 +14,9 @@ public class ExcelRead {
 	static XSSFSheet sh;
 
 	public static String getStringData(int a, int b) throws IOException {
-		f = new FileInputStream(
+		f = new FileInputStream(//used to set path for external files
 				System.getProperty("user.dir") +"\\src\\test\\resources\\File.xlsx");
-		w = new XSSFWorkbook(f);
+		w = new XSSFWorkbook(f);//getting workbook of file
 		sh = w.getSheet("Sheet1");
 		Row r = sh.getRow(a);
 		Cell c = r.getCell(b);
@@ -30,7 +30,7 @@ public class ExcelRead {
 		sh = w.getSheet("Sheet1");
 		Row r = sh.getRow(a);
 		Cell c = r.getCell(b);
-		int x = (int) c.getNumericCellValue();
+		int x = (int) c.getNumericCellValue();//typecasting applied
 		return String.valueOf(x);
 	}
 }

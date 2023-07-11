@@ -11,6 +11,13 @@
     <classes>
       <class name="executePageClasses.ManageProductPageTest"/>
       <class name="executePageClasses.LogInPageTestClass"/>
+    
+    </classes>
+  </test> <!-- Test -->
+   <test thread-count="3" name="ParallelTest2" parallel="tests">  
+  <parameter name="Browser" value="Chrome"></parameter>
+    <classes>
+      
      <class name="executePageClasses.ManageExpensePageTest"/>
       <class name="executePageClasses.ExpenseCatogoryTest"/>
       <class name="executePageClasses.HomePageTestClass"/> 
